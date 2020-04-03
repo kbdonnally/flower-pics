@@ -1,0 +1,24 @@
+{
+  "name": "flower-pics",
+  "version": "1.0.0",
+  "description": "Saw pretty flowers, making a pretty homepage using them.",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-sass": "^4.0.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kbdonnally/flower-pics.git"
+  },
+  "author": "kbdonnally <kbd3ax@virginia.edu>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kbdonnally/flower-pics/issues"
+  },
+  "homepage": "https://github.com/kbdonnally/flower-pics#readme"
+}
