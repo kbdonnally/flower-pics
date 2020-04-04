@@ -1,24 +1,44 @@
-var gulp = require('gulp');
-var sass = require('gulp-sass');
- 
-sass.compiler = require('node-sass');
- 
-gulp.task('sass', function () {
-  return gulp.src('./sass/**/*.scss')
-    .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('./css'));
-});
- 
-gulp.task('sass:watch', function () {
-  gulp.watch('./sass/**/*.scss', ['sass']);
+// required NPM packages
+
+var gulp 		 = require('gulp');
+var sass 		 = require('gulp-sass');
+var autoprefixer = require('gulp-autoprefixer');
+
+// 1. compiling the SCSS to CSS
+
+const sassCompile = (done) => {
+	gulp.src('css/prod/style.scss')
+		.pipe(sass({
+			includePaths: ['./css/prod/_sass'],
+			outputStyle: 'compressed'
+		}).on('error', sass.logError))
+		.pipe(autoprefixer({
+			browsers: ['last 2 versions'],
+			grid: true
+		}))
+		.pipe(gulp.dest(css/dist));
+	done()
+}
+
+gulp.task('sass:compile', sassCompile);
+
+// 2. watch the code for changes
+
+gulp.task('sass:watch', () => {
+	return gulp.watch('css/prod/**/*.scss', cssCompile)
 });
 
-// ***
+// 3. cleaning out the files
 
-sassClean = (done) => {
+const sassClean = (done) => {
 	gulp.src('../dist/style.scss', { allowEmpty: true })
 		.pipe(clean());
 	done();
 }
 
 gulp.task('sass:clean', sassClean);
+
+// ***
+
+// final task
+gulp.task('sass', gulp.series('sass:clean', 'sass:compile', 'sass:watch'));
