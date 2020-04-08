@@ -1,7 +1,8 @@
-// required NPM packages
+// required NPM package
 
 var gulp 		 = require('gulp');
 var sass 		 = require('gulp-sass');
+var clean 		 = require('gulp-clean');
 var autoprefixer = require('gulp-autoprefixer');
 
 // 1. compiling the SCSS to CSS
@@ -13,11 +14,11 @@ const sassCompile = (done) => {
 			outputStyle: 'compressed'
 		}).on('error', sass.logError))
 		.pipe(autoprefixer({
-			browsers: ['last 2 versions'],
+			
 			grid: true
 		}))
-		.pipe(gulp.dest(css/dist));
-	done()
+		.pipe(gulp.dest('css/dist'));
+	done();
 }
 
 gulp.task('sass:compile', sassCompile);
@@ -25,7 +26,7 @@ gulp.task('sass:compile', sassCompile);
 // 2. watch the code for changes
 
 gulp.task('sass:watch', () => {
-	return gulp.watch('css/prod/**/*.scss', cssCompile)
+	return gulp.watch('css/prod/**/*.scss', sassCompile)
 });
 
 // 3. cleaning out the files

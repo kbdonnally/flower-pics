@@ -7,8 +7,12 @@
   "devDependencies": {
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
+    "gulp-clean": "^0.4.0",
     "gulp-sass": "^4.0.2"
   },
+  "browserslist": [
+    "last 2 versions"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
