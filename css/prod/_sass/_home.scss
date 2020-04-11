@@ -20,14 +20,23 @@ h1, h2, h3, h4 {
 	width: calc(100vw - 8px);
 	margin: 0;
 	border: 4px solid black;
-	background-image: linear-gradient(hsla(0, 0, 100%, .4), hsla(0, 0, 100%, .4)), url('../../img/fuschia-flowers-1.jpg');
+	background-image: /* linear-gradient(hsla(0, 0, 100%, .4), hsla(0, 0, 100%, .4)), */ url('../../img/fuschia-flowers-1.jpg');
 	background-size: 200px;
 }
 
-.flower-pics__page-title {
+.flower-pics__wrapper {
+	padding: 3rem 4rem;
+	border: 4px solid $pinklace;
+}
 
+.flower-pics__page-title {
+	color: $pinklace;
+	font-size: 4rem;
+	text-transform: uppercase;
 }
 
 .flower-pics__subtitle {
-
+	color: $pinklace;
+	font-size: 3rem;
+	text-transform: uppercase;
 }
